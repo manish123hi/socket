@@ -1,2 +1,0 @@
-# socket
-understanding of socket

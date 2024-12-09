@@ -1,0 +1,15 @@
+{
+  "name": "socket",
+  "version": "1.0.0",
+  "description": "understanding of socket\r how there is cokmuunication between server and client is started?",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "author": "Manish",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  }
+}

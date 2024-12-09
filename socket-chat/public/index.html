@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chat-app</title>
+  </head>
+  <body>
+    <h1>hello,mr manish</h1>
+    <input type="text" id="text-area" placeholder="enter your text" />
+    <button id="sentbtn" type="submit">enter</button>
+    <div id="messages"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+
+      const text = document.getElementById("text-area");
+      const btn = document.getElementById("sentbtn");
+      const allMessages = document.getElementById("messages");
+      //socket.on backend bata (server) message auuda
+      socket.on("message", (msg) => {
+        const p = document.createElement("p");
+        p.innerHTML = msg;
+        allMessages.appendChild(p);
+      });
+
+      btn.addEventListener("click", () => {
+        const msg = text.value;
+
+        console.log("Sending message:", msg); // Check if this appears
+        socket.emit("user-message", msg); // Emit to server
+        text.value = "";
+      });
+    </script>
+  </body>
+</html>
